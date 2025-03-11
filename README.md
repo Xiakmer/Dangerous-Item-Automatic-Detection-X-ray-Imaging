@@ -13,10 +13,10 @@
    ```bash
    python run/SDGUI/startdetect.py
    
-2. **Select the desktop region (detection area).
+2. **Select the desktop region (detection area)**.
   - Do not overlap the software window with the detection area.
   - Ensure the detection area covers the desired video or image.
     
-3. **Place the video/image in the detection area.
+3. **Place the video/image in the detection area**.
   - The software will label hazardous objects in real-time.
   - You can also monitor system resource usage.
