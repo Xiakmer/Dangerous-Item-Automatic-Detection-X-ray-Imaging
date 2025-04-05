@@ -13,32 +13,27 @@ class StartWindow(QWidget):
 
         self.font = QFont()
         self.font.setFamily("Microsoft YaHei")
-        # self.font.setWeight(10)
         self.font.setBold(True)
 
-        # Set the window size and title
-        # self.setGeometry(100, 100,880, 560)
         self.setGeometry(0, 35, 880, 660)
         self.setWindowTitle('Start Window')
 
-        # Load image and set it as the background
+
         self.background = QLabel(self)
-        # self.background.setPixmap(QPixmap('radar.png'))#backgroudImage
+
         self.background.setGeometry(0, 0, 400, 400)
 
-        # Create a QVBoxLayout to hold the button
         layout = QVBoxLayout()
         self.label = QLabel('Dangerous Item Auto Detection', self)
-        # self.label.setFont(self.font)
+
         self.label.setStyleSheet(
             'font: 48px "Microsoft JhengHei"; color: black;font-weight: bold;')
         self.label.setGeometry(0, 0, self.width(), self.height())
         self.label.setAlignment(Qt.AlignCenter)
-        # Create a QPushButton and add it to the layout
+
         self.Startbutton = QPushButton("Select Detection Area",self)
         self.Startbutton.setFont(self.font)
-        # self.Startbutton.setGeometry(0, 0, 200, 50)
-        # self.Startbutton.setAlignment(Qt.AlignCenter)
+
         self.Startbutton.setFixedSize(300, 80)
         self.Startbutton.setStyleSheet(
             "QPushButton {"
@@ -59,32 +54,27 @@ class StartWindow(QWidget):
             "border: 2px solid #2e6b2e;"
             "}"
         )
-        # Create vertical layout and add label and button to it
+
         vlayout = QVBoxLayout()
         vlayout.addWidget(self.label)
         vlayout.addWidget(self.Startbutton)
 
-        # Set label and button to center horizontally
         self.label.setAlignment(Qt.AlignHCenter)
-        # self.Startbutton.setAlignment(Qt.AlignHCenter)
 
-        # Create horizontal layout and add vertical layout to it
         hlayout = QHBoxLayout()
         hlayout.addStretch()
         hlayout.addLayout(vlayout)
         hlayout.addStretch()
 
-        # Set layout to center horizontally
         hlayout.setAlignment(Qt.AlignCenter)
         vlayout.setAlignment(Qt.AlignCenter)
-        # Set window layout
+
         self.setLayout(hlayout)
 
-        # Connect the button to a function that opens a new window
         self.Startbutton.clicked.connect(self.open_new_window)
 
     def open_new_window(self):
-        # Create a new window with a size of 400x400 and a blank background
+
         self.hide()
         sleep(1)
         CurrentImage = ImageGrab.grab()  # 获得当前屏幕
@@ -98,8 +88,6 @@ class StartWindow(QWidget):
         self.start_detect_window.show()
         self.hide()
 
-
-#FrameRange
 class FrameRange(QMainWindow):
     def __init__(self, start_window):
         super().__init__()
@@ -203,8 +191,8 @@ class FrameRange(QMainWindow):
     def Exit(self):
         self.close()
 if __name__ == '__main__':
-    p = ImageGrab.grab()  # 获得当前屏幕
-    screen_w, screen_h = p.size  # 获得当前屏幕的大小
+    p = ImageGrab.grab()
+    screen_w, screen_h = p.size
     app = QApplication(sys.argv)
     startwindow = StartWindow()
     startwindow.show()
