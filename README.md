@@ -11,7 +11,8 @@
 ## How to Run
 1. **Start the detection script**:
    ```bash
-   python run/SDGUI/startdetect.py
+   python run/GUI/GUIPage.py
+
    
 2. **Select the desktop region (detection area)**.
   - Do not overlap the software window with the detection area.
